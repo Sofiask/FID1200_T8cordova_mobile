@@ -1,0 +1,437 @@
+body {
+    background-color: #fbfbfb;
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+}
+
+.intro {
+    background-image: url(../assets/images/Mapsicle\ Map.svg);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    top: 0;
+    transition: 1.5s;
+}
+
+.intro img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50px;
+}
+
+.logo-header {
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    transform: translate(-1%, -1%);
+}
+
+.logo {
+    position: relative;
+    display: inline-block;
+    bottom: -20%;
+    opacity: 0;
+}
+
+.logo.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 1s;
+}
+
+.logo.fade {
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 1s;
+}
+
+
+#burgerElement {
+    width: 312px;
+    height: 100vh;
+    background-color: blanchedalmond;
+    position: absolute;
+    z-index: 1;
+}
+
+.burgerLogo {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+
+.ul {
+    padding-left: 50px;
+    list-style: none;
+    margin: 10px;
+    line-height: 250%;
+    font-size: 24px;
+    margin-top: 40px;
+}
+
+#showButton {
+    background-image: url(../assets/icons/Menu.svg);
+    background-color: #fbfbfb;
+    width: 36px;
+    height: 26px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+#hideButton {
+    background-image: url(../assets/icons/Exit.svg);
+    background-color: blanchedalmond;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+
+#main {
+    width: 100%;
+    height: 100%;
+    background-color: #fbfbfb;
+    position: absolute;
+    z-index: 0;
+}
+
+.hidden {
+    left: -312px;
+}
+
+
+@keyframes easeIn {
+    from {
+        left: -312px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes easeOut {
+    from {
+        left: 0px;
+    }
+    to {
+        left: -312px;
+    }
+}
+
+.menuBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.menuBar img {
+    width: 60px;
+    height: 60px;
+}
+
+#map {
+    width: 100vw;
+    height: 550px;
+    background-color: rgb(192, 151, 231);
+}
+
+.beach-place {
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #F0BC16;
+    background-image: url(../assets/icons/beach.svg);
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+}
+
+.beach-place-active {
+    border: none;
+    cursor: pointer;
+    border: 2px solid #F0BC16;
+    background-color: #FFF;
+    background-image: url(../assets/icons/beach.svg);
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+}
+
+.beach-place:before {
+    color: #FFF;
+    padding: 10px;
+    background-position: center;
+    background-size: 55%;
+}
+
+.beach-place-active:before {
+    color: #F0BC16;
+    padding: 10px;
+    background-position: center;
+    background-size: 55%;
+}
+
+.marker {
+    display: flex;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #2A92BF;
+    border-radius: 20px;
+    color: #FFF;
+}
+
+.markerActive {
+    display: flex;
+    cursor: pointer;
+    width: 40px;
+    background-color: #FFF;
+    border-radius: 20px;
+    border: 2px solid #2A92BF;
+
+}
+
+.marker:before {
+    content: attr(availability);
+    color: #FFF;
+    font-size: 16px;
+    padding: 10px;
+    font-family: 'Inter', Courier New, Courier, monospace;
+    font-weight: 600;
+}
+
+.markerActive:before {
+    content: attr(availability);
+    color: #2A92BF;
+    font-size: 16px;
+    padding: 10px;
+    font-family: 'Inter', Courier New, Courier, monospace;
+    font-weight: 600;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 96%;
+    margin: 1.5% 2%;
+    gap: 10px;
+}
+
+.hiddenWeather {
+    display: none;
+}
+
+.card {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #FFF;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    margin-left: 5px;
+}
+
+.card2Ticket {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+
+.cardTicket {
+    border-radius: 5px;
+    padding-left: 10px;
+    background-color: #FFF;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 90%;
+    margin-left: 15px;
+    background: linear-gradient(180deg, #C4C4C4 -3.05%, rgba(196, 196, 196, 0.984375) -3.04%, rgba(255, 255, 255, 0.917816) -3.03%, rgba(255, 255, 255, 0.26) 99.92%);
+}
+
+.cardTicket2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.cardTicket2 img {
+    height: 20px;
+}
+
+.cardTicket img {
+    width: 90%;
+}
+
+#weather {
+    background-image: url("../assets/icons/weather/cloudy.jpg");
+    background-size: contain;
+    height: 40px;
+    width: 55px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+}
+
+.card img {
+    height: 37px;
+    width: 32px;
+    margin-right: 50px;
+}
+
+.bikeContainer {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    position: absolute;
+    bottom: 0px;
+    z-index: 100;
+    width: 96%;
+    background-color: #FFF;
+    margin: 0 2%;
+    align-items: center;
+}
+
+.beachContainer {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    position: absolute;
+    bottom: 0px;
+    z-index: 100;
+    width: 96%;
+    background-color: #FFF;
+    margin: 0 2%;
+    align-items: center;
+}
+
+.detailsHidden {
+    display: none;
+}
+
+.bikeContainer img {
+    height: fit-content;
+    width: fit-content;
+    margin: 10px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.topBeach {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.walk {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.available-bikes {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    align-items: center;
+}
+
+.available-bikes img {
+    max-width: 30px;
+}
+
+.available-docks img {
+    max-width: 30px;
+}
+
+.available-docks {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    align-items: center;
+}
+
+.available-temperature {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    align-items: center;
+}
+
+.available-temperature img {
+    width: 30px;
+    height: 30px;
+    margin-left: 35px;
+    margin-right: 25px;
+}
+
+.avilability {
+    width: 90%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #1C7CA5;
+    color: white;
+    padding: 10px 17px 10px 17px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
